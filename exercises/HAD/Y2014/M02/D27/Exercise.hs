@@ -12,4 +12,8 @@ module HAD.Y2014.M02.D27.Exercise where
 -- Nothing
 --
 divIfMultiple :: Integral a => a -> [a] -> Maybe [a]
-divIfMultiple x = undefined
+divIfMultiple x xs = if x `isDivOf` xs
+        then Just . map (`div` x) $ xs
+        else Nothing
+    where
+        isDivOf n = all $ (== 0) . (`mod` n)
