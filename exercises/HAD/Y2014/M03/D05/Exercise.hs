@@ -14,5 +14,5 @@ module HAD.Y2014.M03.D05.Exercise where
 -- >>> chainEndos [] (12 :: Int)
 -- 12
 --
-chainEndos :: [a->a] -> a -> a
-chainEndos = undefined
+chainEndos :: [a -> a] -> a -> a
+chainEndos = flip (foldr ($))
