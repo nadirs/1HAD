@@ -1,5 +1,7 @@
 module HAD.Y2014.M02.D28.Exercise where
 
+import Control.Applicative
+
 -- | use elements of the first lists to zip elements
 -- of the second and third lists
 --
@@ -10,5 +12,5 @@ module HAD.Y2014.M02.D28.Exercise where
 -- [6]
 -- >>> zipBinary (cycle [(+), (*)]) [1 .. 4] [2..5]
 -- [3,6,7,20]
-zipBinary :: [a->b->c] -> [a] -> [b] -> [c]
-zipBinary ops xs ys = undefined
+zipBinary :: [a -> b -> c] -> [a] -> [b] -> [c]
+zipBinary ops xs ys = getZipList $ ZipList ops <*> ZipList xs <*> ZipList ys
