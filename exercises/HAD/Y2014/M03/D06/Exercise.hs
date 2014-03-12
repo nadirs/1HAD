@@ -17,9 +17,9 @@ module HAD.Y2014.M03.D06.Exercise where
 -- >>> takeStrictlyLessThan (42::Int) $ []
 -- []
 --
-takeStrictlyLessThan :: Integral a => a -> [a] -> [a]
+takeStrictlyLessThan :: (Num a, Ord a) => a -> [a] -> [a]
 takeStrictlyLessThan = iter [] where
-    iter :: Integral a => [a] -> a -> [a] -> [a]
+    iter :: (Num a, Ord a) => [a] -> a -> [a] -> [a]
     iter past n (x:future)
         | n - x > 0     = x : iter past (n - x) future
     iter _ _ _ = []
