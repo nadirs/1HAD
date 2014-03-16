@@ -1,5 +1,8 @@
 module HAD.Y2014.M03.D11.Exercise where
 
+import Data.Char (isAsciiLower)
+import Control.Applicative (liftA2)
+
 -- | lcAlphabetFrom
 -- Display the alaphabet in lower cas, starting from the letter given in
 -- parameter.
@@ -22,4 +25,4 @@ module HAD.Y2014.M03.D11.Exercise where
 -- "abcdefghijklmnopqrstuvwxyz"
 
 lcAlphabetFrom :: Char -> String
-lcAlphabetFrom = undefined
+lcAlphabetFrom = take 26 . flip dropWhile (cycle ['a'..'z']) . flip ((liftA2 (&&) isAsciiLower .) (/=))
