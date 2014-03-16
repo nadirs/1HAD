@@ -15,7 +15,11 @@ module HAD.Y2014.M03.D07.Exercise where
 -- [True,False,True,False,True,False]
 --
 -- >>> take 3 $ trueIndexes []
--- [False, False, False]
+-- [False,False,False]
 --
 trueIndexes :: [Int] -> [Bool]
-trueIndexes = undefined
+trueIndexes = trueIndexes' 0
+
+trueIndexes' :: Int -> [Int] -> [Bool]
+trueIndexes' n (x:xs) = replicate (x - n) False ++ True : trueIndexes' (x + 1) xs
+trueIndexes' _ _ = repeat False
