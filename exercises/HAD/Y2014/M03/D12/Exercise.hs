@@ -19,4 +19,7 @@ module HAD.Y2014.M03.D12.Exercise where
 -- [2,3,4,5]
 --
 localMax :: Ord a => [a] -> [a]
-localMax = undefined
+localMax (x:xs@(y:z:_))
+    | x < y && y > z = y : localMax xs
+    | otherwise      = localMax xs
+localMax _ = []
