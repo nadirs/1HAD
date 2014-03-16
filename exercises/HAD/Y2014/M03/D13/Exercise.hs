@@ -1,5 +1,8 @@
 module HAD.Y2014.M03.D13.Exercise where
 
+import Data.Function (on)
+import Data.Monoid (mappend)
+
 -- | pairToList Transform a pair of same type elements in a list of two
 -- elements.
 -- 
@@ -11,4 +14,4 @@ module HAD.Y2014.M03.D13.Exercise where
 -- prop> (\(f,s) -> [f,s]) x == pairToList x 
 --
 pairToList :: (a,a) -> [a]
-pairToList = undefined
+pairToList = uncurry (mappend `on` return)
